@@ -6,6 +6,7 @@ urlpatterns = [
     # ... 他のURLパターン ...
     path('accounts/', views.index, name="index"),
     path('', views.accounts, name="home"),
+    path('account/<str:name>/', views.room, name="room"),
     path('profile_create/', views.form_create, name="profile_create"),
 ]
 if settings.DEBUG:

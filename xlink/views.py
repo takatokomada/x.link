@@ -56,34 +56,11 @@ def account(request,name):
 		'account': account,
 	}
 	return HttpResponse(template.render(context, request))
-
-def userpages(request, name):
-	userpages = Account.objects.get(name=name)
-	# userpages = Group.objects.filter(name=managername)
-	template = loader.get_template('class.html')
-	context={
-		'userpages': userpages
-	}
-	return HttpResponse(template.render(context, request))
-@csrf_exempt
-def homes(request):
-	homes =Account.objects.order_by('-name')[:100000]
-	template=loader.get_template('home.html')
-	context={
-		'csrf_token': '',
-		'homes': homes,
-	} 
-	return HttpResponse(template.render(context, request))
-def profile(request, managername, pk):
-	name = Group.objects.filter(name=managername)
-	profile = Account.objects.get(pk=pk)
-	template = loader.get_template('manager.html')
-	current_user = request.GET.get('user')
-	logged_in_user = request.user.username
+def profiles(request):
+	template = loader.get_template('header.html', 'profile.html')
+	rooms = Account.objects.order_by('-name')[:10000]
 	context ={
-		'profile': name,
-		'current_user': current_user,
-		'logged_in_user': logged_in_user,
+		'rooms': rooms
 	}
 	return HttpResponse(template.render(context, request))
 def groups(request):
@@ -108,6 +85,7 @@ def room(request, name):
 	group = Group.objects.filter(managername=name)
 	accounts = Account.objects.order_by('-created_at')[:1000]
 	comments = Comment.objects.order_by('-created_at')[:10000]
+	rooms = Account.objects.order_by('-name')[:10000]
 	# notifications = AccountNotification.objects.order_by('-created_at')[:100000]
 	current_user = request.GET.get('user')
 	logged_in_user = request.user.username
@@ -135,8 +113,9 @@ def room(request, name):
 		root_button_value = 'rooting'
 	else:
 		root_button_value = 'root'
-	template = loader.get_template('activate.html')
+	template = loader.get_template('profile.html')
 	context={
+		'rooms':rooms, 
 		'room': name,
 		'comments': comments,
 		'roots': roots,
