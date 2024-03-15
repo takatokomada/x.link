@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block extra_head %}
+  <link rel="stylesheet" href="{% static 'css/home.css'%}">
+{% endblock %}
+{% block title%}X.LiNK|Profile/Create{% endblock%}
+{% block content %}
+<div class="name">
+    Profile作成
+</div>
+<br>
+<div class="forms">
+    <div class="reg_form">
+        <form class="forms" enctype="multipart/form-data" method="post">
+            {% csrf_token %}
+            {% comment %} {{ account_form|crispy }} {% endcomment %}
+            {{form|crispy}}
+            <button class="create" type="submit"><b>作成</b></button>
+        </form>
+    </div>
+</div>
+{% endblock %}
