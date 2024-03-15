@@ -25,15 +25,15 @@ def index(request):
         'csrf_token': '',
     }
     return HttpResponse(template.render(context_instance, request))
-def home(request):
-    template = loader.get_template('home.html')
-    context = {
-        'csrf_token': '',
-    }
-    return HttpResponse(template.render(context, request))
+# def home(request):
+#     template = loader.get_template('home.html')
+#     context = {
+#         'csrf_token': '',
+#     }
+#     return HttpResponse(template.render(context, request))
 def rooms(request):
 	rooms = Account.objects.order_by('-name')[:10000]
-	template=loader.get_template('header.html')
+	template=loader.get_template('header.html', 'home.html')
 	context={
 		'csrf_token': '',
 		'rooms': rooms,
