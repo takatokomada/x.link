@@ -31,6 +31,14 @@ def home(request):
         'csrf_token': '',
     }
     return HttpResponse(template.render(context, request))
+def rooms(request):
+	rooms = Account.objects.order_by('-name')[:10000]
+	template=loader.get_template('header.html')
+	context={
+		'csrf_token': '',
+		'rooms': rooms,
+	}
+	return HttpResponse(template.render(context, request))
 def accounts(request):
 	accounts = Group.objects.order_by('-created_at')[:1000000]
 	rooms = Account.objects.order_by('-name')[:10000]

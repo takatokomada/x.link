@@ -13,22 +13,21 @@
     </head>
     <body  class="container py-5">
         <nav class="main_page">
-            <div>
-                <div class="header">
-                    <h1>
-                        <div class="head">
-                            <div>
-                                <div class="headline" onclick="clickBtn()"> 
-                                   <b class="x">X.</b><b class="linkS">LiNK</b>
-                                </div>
+            <div class="header">
+                <h1>
+                    <div class="head">
+                        <div>
+                            <div class="headline" onclick="clickBtn()"> 
+                                <b class="x">X.</b><b class="linkS">LiNK</b>
                             </div>
                         </div>
-                    </h1>
-                </div>
+                    </div>
+                </h1>
             </div>
-            <div>
+            <center>
+                <hr>
                 <div class="name">
-                    <div>Welcome Back</div>
+                    <h1>Welcome Back</h1>
                 </div>
                 <div class="forms">
                     <div class="reg_form">
@@ -36,12 +35,18 @@
                         <form class="forms"  action="{% url 'account_login' %}" enctype="multipart/form-data" method="POST">
                             {% csrf_token %}
                             {{form.as_p}}
-                            <button class="login" type="submit"><b>Login</b></button>
+                            <button class="register" type="submit"><b>Login</b></button>
                         </form>
                         <p class="text-center">アカウントを未登録の時は、<a href="/accounts/signup/">Sign up</a>してください。</p>
                     </div>
                 </div>
-            </div>
+            </center>
         </nav>
     </body>
+    <script type="text/javascript">
+        const element = document.querySelector('label');
+        element.remove();
+        const element1 = document.querySelector('label');
+        element1.remove();
+    </script>
 </html>

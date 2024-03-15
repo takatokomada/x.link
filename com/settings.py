@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-4nar-6*z84n7vb%hv_c=3xc6!n@i98sxgf_u82q#%bjr*yw3q0
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['x.link']
+ALLOWED_HOSTS = ['x.link', '127.0.0.1']
 
 
 # Application definition
@@ -47,13 +47,10 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'widget_tweaks',
     'crispy_forms',
-    # 'django_filters',
     'bootstrap4',
-    # 'django.contrib.staticfiles',
+    # 'Pillow',
+    'PIL',
 ]
-# DEBUG が True の場合、静的ファイルは自動的に提供されます。
-# if DEBUG:
-#     urlpatterns = static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -93,6 +90,7 @@ TEMPLATES =[
 ]
 
 WSGI_APPLICATION = 'com.wsgi.xlink'
+wsgi_app = 'com.wsgi:application'
 
 
 # Database
