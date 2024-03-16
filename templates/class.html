@@ -459,14 +459,14 @@
                                     <hr class="hr_follower">
                                     <div class="follower"><b><center>Rooters</center></b></div>
                                     <br>
-                                    <li style="color: rgb(241, 240, 240);">
+                                    <li style="color: white">
                                       {% for root in roots %}
                                       <ul class="followers_list">
                                         {% for group in groups%}
                                         {% if root.group == group.name %}
                                         <li class="followers_class">
                                           <b><a href="/community/{{group.name}}/"><img src="/media/{{group.icon}}/" class="user_icon"/><div class="font">{{group.name}}</div></a></b>
-                                          <div class="class_indexs"><small>{{group.index}}</small></div>
+                                          <div class="class_indexs"><small><b>{{group.index}}</b></small></div>
                                         </li>
                                         <br>
                                         {% endif %}
@@ -484,14 +484,14 @@
                                     <hr class="hr_follower">
                                     <div class="follower"><b><center>Members</center></b></div>
                                     <br>
-                                    <li style="color: rgb(241, 240, 240);">
+                                    <li style="color: white">
                                       {% for following in followings %}
                                       <ul class="followers_list">
                                         {% for room in rooms%}
                                         {% if following.follower == room.name %}
                                         <li class="followers">
                                           <b>
-                                            <a href="/account/{{room.name}}/"><img src="/media/{{room.icon}}/" class="root_user_icon"/>{{room.name}}</a>
+                                            <a class="font" href="/account/{{room.name}}/"><img src="/media/{{room.icon}}/" class="root_user_icon"/>{{room.name}}</a>
                                           </b>
                                         </li>
                                         {% endif %}
