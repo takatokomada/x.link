@@ -42,7 +42,6 @@
                             <form id="post_button" action="/root_selecter" method="post">
                                 {% csrf_token %}
                                 {% for manage in manages %}
-                                <input type="hidden" name="rooter_id" value="{{rooter_id}}" readonly/>
                                 <input type="hidden" name="rooter" value="{{manage}}"readonly/>
                                 {%endfor%}
                                 <input type="hidden" name="group" value="{{community}}" readonly/>
@@ -54,7 +53,7 @@
                                         <button id="btnGroupDrop1" data-bs-toggle="dropdown" aria-expanded="false" class="root" type="submit" type="submit" ><b>ルート</b><div style="display: none;">{{user.username}}</div></button>
                                         <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
                                             <li>
-                                                {% for manage in manages%}<button type="submit" class="dropdown-item">{{manage}}</button>{% endfor %}
+                                                {%for manage in manages%}<button type="submit" class='dropdown-item'>{{manage}}</button>{%endfor%}
                                             </li>
                                         </ul>
                                     </div>
@@ -64,9 +63,11 @@
                                     <div class="btn-group" role="group">
                                         <input type="hidden" name="value" value="rooting" readonly/>
                                         <button id="btnGroupDrop1" data-bs-toggle="dropdown" aria-expanded="false" class="rooting1"type="submit"><b>ルート中</b><div style="display: none;">{{user.username}}</div></button>
-                                        <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                                            {%for manage in manages%}<button type="submit" class='dropdown-item'>{{manage}}</button>{%endfor%}
-                                        </div>
+                                        <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                                            <li>
+                                                <button type="submit" class='dropdown-item'>{{manage}}</button>
+                                            </li>
+                                        </ul>
                                     </div>
                                 </div> 
                                 {% endif %}
