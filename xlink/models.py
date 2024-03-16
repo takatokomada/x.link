@@ -54,7 +54,7 @@ class Group(models.Model):
     web_site = models.URLField(blank=True)
     backimage = models.ImageField(upload_to='backimage/', verbose_name="BackImage")
     icon = models.ImageField(upload_to='classicon/', verbose_name="クラスアイコン", null=True)
-    index = models.CharField(max_length=30, blank=False, null=True, verbose_name = "見出し")
+    index = models.CharField(max_length=50, blank=False, null=True, verbose_name = "見出し")
     explain = models.TextField(max_length=180, blank=True, verbose_name="explain")
     created_at = models.DateField(null=True ,auto_now_add=True, blank=True, verbose_name='作成日')
     def __str__(self):

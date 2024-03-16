@@ -84,16 +84,28 @@
                             </button>
                         </a>
                     </li>
+                    {% if community %}
                     <li style="color: rgb(241, 240, 240);">
                         <a class="side_name" >
                             <button id="nemu_button4"  onMouseOver="beforecolor4()" onMouseOut="aftercolor4()" class="border_2">
                                 <svg style="color: black; position: relative; margin-left: -200px; margin-top: 7px;"  xmlns="http://www.w3.org/2000/svg"width="20" height="20"fill="currentColor" class="bi bi-diagram-3-fill" viewBox="0 0 16 16">
                                     <path fill-rule="evenodd" d="M6 3.5A1.5 1.5 0 0 1 7.5 2h1A1.5 1.5 0 0 1 10 3.5v1A1.5 1.5 0 0 1 8.5 6v1H14a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-1 0V8h-5v.5a.5.5 0 0 1-1 0V8h-5v.5a.5.5 0 0 1-1 0v-1A.5.5 0 0 1 2 7h5.5V6A1.5 1.5 0 0 1 6 4.5v-1zm-6 8A1.5 1.5 0 0 1 1.5 10h1A1.5 1.5 0 0 1 4 11.5v1A1.5 1.5 0 0 1 2.5 14h-1A1.5 1.5 0 0 1 0 12.5v-1zm6 0A1.5 1.5 0 0 1 7.5 10h1a1.5 1.5 0 0 1 1.5 1.5v1A1.5 1.5 0 0 1 8.5 14h-1A1.5 1.5 0 0 1 6 12.5v-1zm6 0a1.5 1.5 0 0 1 1.5-1.5h1a1.5 1.5 0 0 1 1.5 1.5v1a1.5 1.5 0 0 1-1.5 1.5h-1a1.5 1.5 0 0 1-1.5-1.5v-1z"/>
                                 </svg>
-                                <b><div class="rooting">ルート中</div></b>
+                                <b><div class="rooting">作成</div></b>
                             </button>
                         </a>
                     </li>
+                    <li style="color: rgb(241, 240, 240);">
+                        <a class="side_name" >
+                            <button id="nemu_button8"  onMouseOver="beforecolor8()" onMouseOut="aftercolor8()" class="border_2">
+                                <svg style="color: black; position: relative; margin-left: -200px; margin-top: 7px;"  xmlns="http://www.w3.org/2000/svg"width="20" height="20"fill="currentColor" class="bi bi-diagram-3-fill" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M6 3.5A1.5 1.5 0 0 1 7.5 2h1A1.5 1.5 0 0 1 10 3.5v1A1.5 1.5 0 0 1 8.5 6v1H14a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-1 0V8h-5v.5a.5.5 0 0 1-1 0V8h-5v.5a.5.5 0 0 1-1 0v-1A.5.5 0 0 1 2 7h5.5V6A1.5 1.5 0 0 1 6 4.5v-1zm-6 8A1.5 1.5 0 0 1 1.5 10h1A1.5 1.5 0 0 1 4 11.5v1A1.5 1.5 0 0 1 2.5 14h-1A1.5 1.5 0 0 1 0 12.5v-1zm6 0A1.5 1.5 0 0 1 7.5 10h1a1.5 1.5 0 0 1 1.5 1.5v1A1.5 1.5 0 0 1 8.5 14h-1A1.5 1.5 0 0 1 6 12.5v-1zm6 0a1.5 1.5 0 0 1 1.5-1.5h1a1.5 1.5 0 0 1 1.5 1.5v1a1.5 1.5 0 0 1-1.5 1.5h-1a1.5 1.5 0 0 1-1.5-1.5v-1z"/>
+                                </svg>
+                                <b><div class="rooting">通知を送る</div></b>
+                            </button>
+                        </a>
+                    </li>
+                    {% endif %}
                     {% if user.username == "駒田隆人" %}
                     <li style="color: rgb(241, 240, 240);">
                         <a class="side_name" href="/admin/">
@@ -199,6 +211,13 @@
         
         function aftercolor7(){
             document.getElementById('nemu_button7').style.backgroundColor = null; 
+        }
+        function beforecolor8(){
+            document.getElementById('nemu_button8').style.backgroundColor = '#e0e0e0';
+        }
+        
+        function aftercolor8(){
+            document.getElementById('nemu_button8').style.backgroundColor = null; 
         }
     </script>
     </body>

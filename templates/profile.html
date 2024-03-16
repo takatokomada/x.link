@@ -189,13 +189,16 @@
         <div class="post_talk_bord">
           <hr class="hr_follower">
           <div class="follower"><b><center>MyClass</center></b></div>
-          <br>
           <li style="color: white;">
             <ul class="followers_list">
               {% for group in groups%}
               <li class="followers">
                 <b>
-                  <a href="/community/{{group.name}}/"><img src="/media/{{group.icon}}/" class="root_user_icon"/><div class="font">{{group.name}}</div></a>
+                    <div>
+                        <a class="font" href="/community/{{group.name}}/">
+                            <img src="/media/{{group.icon}}/" class="root_user_icon"/>{{group.name}}
+                        </a>
+                    </div>
                 </b>
                 <div class="class_index"><b>{{group.index}}</b></div>
               </li>
@@ -209,7 +212,6 @@
         <div class="post_talk_bord">
           <hr class="hr_follower">
           <div class="follower"><b><center>Rooter</center></b></div>
-          <br>
           <li style="color: white;">
             {% for rooter in rooters %}
             <ul class="followers_list">
@@ -217,7 +219,9 @@
               {% if rooter.rooter == account.name %}
               <li class="followers">
                 <b>
-                  <a href="/account/{{account.name}}/"><img src="/media/{{account.icon}}/" class="root_user_icons"/><div class="font">{{account.name}}</div></a>
+                    <div>
+                        <a class="font" href="/account/{{account.name}}/"><img src="/media/{{account.icon}}/" class="root_user_icons"/>{{account.name}}</a>
+                    </div>
                 </b>
               </li>
               <br>
@@ -239,9 +243,13 @@
                 {% for account in accounts%}
                 {% if follower.follower == account.name %}
                 <li class="followers">
-                  <b>
-                    <a href="/account/{{account.name}}/"><img src="/media/{{account.icon}}/" class="root_user_icons"/><div class="font">{{account.name}}</div></a>
-                  </b>
+                    <b>
+                        <div>
+                            <a class="font" href="/account/{{account.name}}/">
+                                <img src="/media/{{account.icon}}/" class="root_user_icons"/>{{account.name}}
+                            </a>
+                        </div>
+                    </b>
                 </li>
                 <br>
                 {% endif %}

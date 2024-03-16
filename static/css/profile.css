@@ -450,7 +450,7 @@
   font-size: 22.5px;
 }
 .followers{
-  margin-bottom: 15px;
+  margin-top: -15px; 
   margin-left: -60px;
   font-size: 22.5px;
 }
@@ -462,13 +462,12 @@
 }
 .font{
   color: #050505;
-  margin-left: 65px;
-  margin-top: -60px;
+  margin-left: 25px;
 }
 .class_index{
-    margin-top: -6.5px;
+    margin-top: -25px;
     margin-bottom: -10px;
-    margin-left: 75px;
+    margin-left: 80px;
     width: 530px;
     font-size: 15px;
     color: #050505;
@@ -481,10 +480,13 @@
   color: black;
 }
 .root_user_icons{
-  margin-top: -40px;
-  margin-left: 20px;
+  margin-top: 10px;
+  margin-left: 15px;
   width: 45px;
   height: 45px;
   object-fit:cover;
     border-radius:50%;
+}
+.ck{
+  margin-top: -10px;
 }
