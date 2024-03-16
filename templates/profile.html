@@ -217,7 +217,7 @@
               {% if rooter.rooter == account.name %}
               <li class="followers">
                 <b>
-                  <a href="/account/{{account.name}}/"><img src="/media/{{account.icon}}/" class="user_icon"/>{{account.name}}</a>
+                  <a href="/account/{{account.name}}/"><img src="/media/{{account.icon}}/" class="root_user_icons"/><div class="font">{{account.name}}</div></a>
                 </b>
               </li>
               <br>
@@ -240,7 +240,7 @@
                 {% if follower.follower == account.name %}
                 <li class="followers">
                   <b>
-                    <a href="/account/{{account.name}}/"><img src="/media/{{account.icon}}/" class="user_icon"/>{{account.name}}</a>
+                    <a href="/account/{{account.name}}/"><img src="/media/{{account.icon}}/" class="root_user_icons"/><div class="font">{{account.name}}</div></a>
                   </b>
                 </li>
                 <br>

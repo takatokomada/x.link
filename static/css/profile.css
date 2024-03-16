@@ -480,3 +480,11 @@
   margin-top: -12px;
   color: black;
 }
+.root_user_icons{
+  margin-top: -40px;
+  margin-left: 20px;
+  width: 45px;
+  height: 45px;
+  object-fit:cover;
+    border-radius:50%;
+}
