@@ -118,10 +118,10 @@
     margin-top: -30px;
 }
 .panel2-group{
-    margin-top: -550px;
+    margin-top: -610px;
 }
 .BORDERS{
-
+  margin-top: -50px;
 }
 .class_bord1{
     position: relative;
@@ -129,10 +129,10 @@
     border-radius: 10px;
     padding: 20px 20px 20px 20px ;
     width: 450px;
-    height: 350px;
+    height: 265px;
     border-top:none;
     background:rgb(255,255,255);
-    margin-left: 210px;
+    margin-left: -50px;
 }
 .image_bord{
     position: relative;
@@ -141,10 +141,11 @@
     height: 225px;
     object-fit: cover;
     margin-left: -20px;
-    margin-top: -310px;
+    margin-top: -370px;
     top: 232px;
 }
 .class_names{
+  color: black;
     position: relative;
     margin-left: 10px;
     top: 132.5px;
@@ -160,7 +161,7 @@
     margin-top:-22.5px;
     top: 150px;
     left: 10px;
-    font-size: 12px;
+    font-size: 14px;
 }
 .class_bord{
     top: -550px;

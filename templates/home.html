@@ -26,23 +26,22 @@
                         <div class="BORDERS">
                             {% for account in accounts%}
                             <ul class="class_bord1">
-                                <li>
-                                    <span style="top:-3px;box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);">
-                                        <a href="/community/{{account.name}}/">
-                                            <div>
-                                                <a href="{% url 'XLiNK:community' account.name %}"><img class="image_bord" src="/media/{{account.backimage}}" alt="">{{ account.backimage.id | linebreaks }}</a>
-                                            </div>
-                                            <span>
-                                                <div class="class_names">
-                                                    <a href="{% url 'XLiNK:community'  account.name  %}"><b>{{account.name}}</b></a>
-                                                    <small>from<a href="/account/{{account.managername}}/"><u><img src="/media/{{account.managername.icon}}/" class="class_account_icon" alt=""/><b>{{account.managername}}</b></u></a></small>
-                                                </div> 
-                                                <b><div class="class_explain">{{account.index}}</div></b>
-                                            </span>
-                                        </a>
+                                <div>
+                                    <span style="color: black; top:-3px;box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);">
+                                        <div>
+                                            <a style="color: black;" href="/community/{{account.name}}/"><img class="image_bord" src="/media/{{account.backimage}}" alt="">{{ account.backimage.id | linebreaks }}</a>
+                                        </div>
+                                        <span class="csck">
+                                            <div class="class_names">
+                                                <a style="color: black;" href="/community/{{account.name}}/"><b>{{account.name}}</b></a>
+                                                <small>from<a style="color: black;" href="/account/{{account.managername}}/"><u><img src="/media/{{account.managername.icon}}/" class="class_account_icon" alt=""/><b>{{account.managername}}</b></u></a><b>/[{{account.category}}クラス]</b></small>
+                                            </div> 
+                                            <b><div class="class_explain">{{account.index}}</div></b>
+                                        </span>
                                     </span>
-                                </li>
+                                </div>
                             </ul>
+                            <br>
                             <br>
                             {% endfor %}
                         </div>  

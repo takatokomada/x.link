@@ -135,11 +135,19 @@ def room(request, name):
 		'root_button_value':root_button_value,
 	}
 	return HttpResponse(template.render(context, request))
+def communitys(request):
+	rooms = Account.objects.order_by('-name')[:10000]
+	template=loader.get_template('header.html', 'class.html')
+	context={
+		'csrf_token': '',
+		'rooms': rooms,
+	}
+	return HttpResponse(template.render(context, request))
 def community(request,name):
 	current_user = request.GET.get('user')
 	logged_in_user = request.user.username
 	groups= Group.objects.order_by('-created_at')[:10000]
-	accounts = Account.objects.order_by('-created_at')[:1000]
+	rooms = Account.objects.order_by('-created_at')[:1000]
 	comments = Comment.objects.order_by('-created_at')[:100000]
 	return_comments = ReturnComment.objects.order_by('-created_at')[:10000]
 	# notifications = Notification.objects.order_by('-created_at')[:100000]
@@ -174,7 +182,7 @@ def community(request,name):
 	template  = loader.get_template('class.html')
 	context = {
 		# 'notifications': notifications,
-		'accounts': accounts,
+		'rooms': rooms,
 		'groups': groups,
 		'comments': comments,
 		'return_comments': return_comments,
@@ -307,7 +315,7 @@ form_create=CreateAccountView.as_view()
 class CreateClassView(generic.CreateView):
 	form_class = ClassCreateForm
 	template_name="create.html"
-	success_url = reverse_lazy("XLiNK:accounts")
+	success_url = '/'
 	def get_form_kwargs(self,*args, **kwargs):
 		xlink_obj = super().get_form_kwargs(*args, **kwargs)
 		form = ClassCreateForm(self.request.POST, instance=Account)
@@ -315,7 +323,7 @@ class CreateClassView(generic.CreateView):
 		xlink_obj['mainuser'] = self.request.user
 		xlink_obj['managername'] = Account.objects.get(name=form.instance.name)
 		return xlink_obj
-
+form_class = CreateClassView.as_view()
 class CreateCommentView(generic.CreateView):
 	form_class = CommentForm
 	template_name="comment_form.html"

@@ -8,6 +8,8 @@ urlpatterns = [
     path('', views.accounts, name="home"),
     path('account/<str:name>/', views.room, name="room"),
     path('profile_create/', views.form_create, name="profile_create"),
+    path('class/create.html/', views.form_class, name="class_create"),
+    path('community/<str:name>/', views.community, name="community"),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

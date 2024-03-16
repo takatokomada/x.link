@@ -22,11 +22,11 @@
     top: 5px;
 }
 .create{
-    color: rgb(0, 0, 0);
-    background:  rgb(0, 255, 42);
+    background: rgb(0, 0, 0);
+    color:  rgb(0, 255, 42);
     /* background: #3C46FF; */
     border-radius: 10px;
-    border:solid 2px rgb(255, 255, 255);;
+    border:solid 2px rgb(241, 240, 240);
     margin-left: 11px;
     width: 180px;
     height: 48px;
