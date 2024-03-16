@@ -106,7 +106,7 @@
         <div class="panel2 tab2-A is-show2">
             <div class="class_post_field">
               <ul>
-                <li>
+                <li style="color: rgb(241, 240, 240);">
                   {% for comment in comments%}
                   {% if room == comment.user %}
                   <span>
@@ -163,11 +163,11 @@
       </div>
       <div class="panel2 tab2-B">
         <div class="followerroom">
-            <div class="post_talk_bord2">
+            <div class="post_talk_bord">
                 <hr class="hr_follower">
                 <div class="follower"><b><center>通知</center></b></div>
                 <br>
-                <li>
+                <li style="color: white">
                   <ul class="notifications_list">
                     {% comment %} {% for notification in notifications %}
                     {% if notification.user == room %}
@@ -190,14 +190,14 @@
           <hr class="hr_follower">
           <div class="follower"><b><center>MyClass</center></b></div>
           <br>
-          <li style="color: rgb(241, 240, 240);">
+          <li style="color: white;">
             <ul class="followers_list">
               {% for group in groups%}
               <li class="followers">
                 <b>
                   <a href="/community/{{group.name}}/"><img src="/media/{{group.icon}}/" class="root_user_icon"/><div class="font">{{group.name}}</div></a>
                 </b>
-                <div class="class_index"><small>{{group.index}}</small></div>
+                <div class="class_index"><b>{{group.index}}</b></div>
               </li>
               <br>
               {%endfor%}
@@ -210,7 +210,7 @@
           <hr class="hr_follower">
           <div class="follower"><b><center>Rooter</center></b></div>
           <br>
-          <li style="color: rgb(241, 240, 240);">
+          <li style="color: white;">
             {% for rooter in rooters %}
             <ul class="followers_list">
               {% for account in accounts%}
@@ -233,7 +233,7 @@
             <hr class="hr_follower">
             <div class="follower"><b><center>Follower</center></b></div>
             <br>
-            <li style="color: rgb(241, 240, 240);">
+            <li style="color: white;">
               {% for follower in followers %}
               <ul class="followers_list">
                 {% for account in accounts%}

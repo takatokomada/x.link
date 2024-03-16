@@ -433,3 +433,50 @@
   .menu4{
     margin-top:-3.5px;
   }
+.post_talk_bord{
+    margin-left: 0px;
+    margin-top: -30px;
+    height: auto;
+    width: 598px;
+    background: #FFF;
+}
+.follower{
+  font-size: 30px;
+  margin-top: -20px;
+}
+.followers_class{
+  margin-bottom: 25px;
+  margin-left: -10px;
+  font-size: 22.5px;
+}
+.followers{
+  margin-bottom: 15px;
+  margin-left: -60px;
+  font-size: 22.5px;
+}
+.followers_list{
+  margin-top: -30px;
+  margin-left: 80px;
+  font-size: 15px;
+
+}
+.font{
+  color: #050505;
+  margin-left: 65px;
+  margin-top: -60px;
+}
+.class_index{
+    margin-top: -6.5px;
+    margin-bottom: -10px;
+    margin-left: 75px;
+    width: 530px;
+    font-size: 15px;
+    color: #050505;
+}
+.class_indexs{
+  font-size: 17.5px;
+  width: 400px;
+  margin-left: 70px;
+  margin-top: -12px;
+  color: black;
+}
