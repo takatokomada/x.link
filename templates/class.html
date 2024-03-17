@@ -4,7 +4,7 @@
 {% block extra_head %}
   <link rel="stylesheet" href="{% static 'css/class.css'%}">
 {% endblock %}
-{% block title%}X.LiNK|Class{% endblock%}
+{% block title%}X.LiNK|{{community.name}}{% endblock%}
 {% block content %}
 <div class="tab-panel">
     <div class="panel-group">
@@ -64,9 +64,15 @@
                                         <input type="hidden" name="value" value="rooting" readonly/>
                                         <button id="btnGroupDrop1" data-bs-toggle="dropdown" aria-expanded="false" class="rooting1"type="submit"><b>ルート中</b><div style="display: none;">{{user.username}}</div></button>
                                         <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                                            {% for root in roots %}
+                                            {% for manage in manages %}
                                             <li>
-                                                <button type="submit" class='dropdown-item'>{{manage}}</button>
+                                                {% if root.group == manage.name %}
+                                                <button type="submit" class='dropdown-item'>{{root.group}}</button>
+                                                {% endif %}
                                             </li>
+                                            {%endfor%}
+                                            {%endfor%}
                                         </ul>
                                     </div>
                                 </div> 
