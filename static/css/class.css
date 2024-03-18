@@ -1086,6 +1086,16 @@ details {
     object-fit: cover;
     border: 4px solid white;
 }
+.class_icon2{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: grey;
+    margin-left: -55px;
+    margin-top: -45px;
+    object-fit: cover;
+    border: 4px solid white;
+}
 .cicon{
     margin-left: -5px;
 }
