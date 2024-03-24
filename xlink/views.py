@@ -151,8 +151,8 @@ def community(request,name):
 	comments = Comment.objects.order_by('-created_at')[:100000]
 	return_comments = ReturnComment.objects.order_by('-created_at')[:10000]
 	# notifications = Notification.objects.order_by('-created_at')[:100000]
-	name = Group.objects.get(name=name)
 	manages=Group.objects.filter(mainuser=request.user)
+	name = Group.objects.get(name=name)
 	user_followers = len(FollowersCount.objects.filter(user=name))	
 	user_following = len(FollowersCount.objects.filter(follower=current_user))
 	user_comments=len(CommentCount.objects.filter(classname=name))
@@ -160,9 +160,8 @@ def community(request,name):
 	user_followers0 = FollowersCount.objects.filter(user=name)
 	followers = FollowersCount.objects.filter(follower=name)
 	followings = FollowersCount.objects.filter(user=name)
-	roots = Root.objects.filter(rooter=name)
 	rooters = Root.objects.filter(group=name)
-	# user_rooters = Root.objects.filter(group=name)
+	user_rooters = Root.objects.filter(rooter=name)
 	root_class=[]
 	user_followers1 = []
 	for i in user_followers0:
@@ -182,13 +181,14 @@ def community(request,name):
 	template  = loader.get_template('class.html')
 	context = {
 		# 'notifications': notifications,
+		# 'class': roots,x
 		'rooms': rooms,
 		'groups': groups,
 		'comments': comments,
 		'return_comments': return_comments,
 		'community':name,
 		'manages': manages, 
-		'roots': roots,
+		'roots': user_rooters,
 		'rooters': rooters,
 		'current_user': current_user,
 		'followers': followers,
@@ -201,6 +201,19 @@ def community(request,name):
 		'root_button_value':root_button_value,
 	}
 	return HttpResponse(template.render(context, request))
+def root_selecter(request):
+	if request.method == "POST":
+		value = request.POST["value"]
+		user = request.POST["user"]
+		rooter = request.POST["rooter"]
+		group = request.POST["group"]	
+		if value == 'root':
+			root_sel = Root.objects.create(group=group, rooter=rooter, user=user)
+			root_sel.save()
+		else: 
+			root_sel = Root.objects.get(group=group,  rooter=rooter, user=user)
+			root_sel.delete()
+		return redirect('/community/' + group)
 def follow_counts(request):
 	if request.method == "POST":
 		value = request.POST["value"]
@@ -237,19 +250,6 @@ def follow_count(request):
 			followers_cnt = FollowersCount.objects.get(user=user, follower=follower)
 			followers_cnt.delete()
 		return redirect('/community/'+ user )
-def root_selecter(request):
-	if request.method == "POST":
-		value = request.POST["value"]
-		group = request.POST["group"]
-		rooter= request.POST["rooter"]
-		user = request.POST["user"]
-		if value == "root":
-			root_sel = Root.objects.create(group=group, rooter=rooter, user=user)
-			root_sel.save()
-		else:
-			root_sel = Root.objects.get(group=group, rooter=rooter, user=user)
-			root_sel.delete()
-		return redirect('/community/'+ group )
 def class_request(request):
 	if request.method == "POST":
 		form = ClassCreateForm(request.POST)

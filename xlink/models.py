@@ -106,7 +106,6 @@ class Root(models.Model):
     group = models.CharField(max_length=10000000)
     rooter = models.CharField(max_length=1000000)
     user = models.CharField(max_length=10000000)
-    # group= models.ForeignKey(Group, on_delete=models.CASCADE, null=True, related_name='class_name')
     def __str__(self):
         return self.group
 class FollowCount(models.Model):
@@ -119,9 +118,12 @@ class AccountRoot(models.Model):
     user = models.CharField(max_length=100000)
     def __str__(self): 
         return str(self.rooter)
-class Roots(models.Model):
-    rooter = models.CharField(max_length=100000)
-    user = models.CharField(max_length=100000)
-    group = models.ForeignKey(Group, on_delete=models.CASCADE, null=True, related_name='class_name')
+class Recommendation(models.Model):
+    recommending_user = models.ForeignKey(User, on_delete=models.CASCADE)
+    recommended_group = models.ForeignKey(Group, on_delete=models.CASCADE)
+class Rooter(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    name = models.CharField(max_length=100)
+
     def __str__(self):
-        return str(self.group)
+        return self.name

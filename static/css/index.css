@@ -35,7 +35,7 @@
     display: flex;
 }
 .name{
-    margin-left: 130px;
+    margin-left: 160px;
     font-size: 35px;
 }
 .word{
@@ -59,7 +59,7 @@
 }
 .name{
     width: 400px;
-    margin-left: 50px;
+    margin-left: 160px;
     border-radius: 10px;
 }
 .mail{

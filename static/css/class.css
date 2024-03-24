@@ -1063,6 +1063,13 @@ details {
     border-radius: 50%;
     object-fit: cover;
 }
+.icon{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-left: -5px;
+}
 .user_icon{
     width: 60px;
     height: 60px;

@@ -43,18 +43,34 @@
                                 {% csrf_token %}
                                 {% for manage in manages %}
                                 <input type="hidden" name="rooter" value="{{manage}}"readonly/>
-                                {%endfor%}
                                 <input type="hidden" name="group" value="{{community}}" readonly/>
                                 <input type="hidden" name="user" value="{{user.username}}" readonly/>
+                                {% endfor %}
                                 {% if root_button_value == 'root' %}
                                 <div class="class-root" class="btn-group" role="group" aria-label="Button group with nested dropdown">
                                     <div class="btn-group" role="group">
                                         <input type="hidden" name="value" value="root" readonly/>
-                                        <button id="btnGroupDrop1" data-bs-toggle="dropdown" aria-expanded="false" class="root" type="submit" type="submit" ><b>ルート</b><div style="display: none;">{{user.username}}</div></button>
+                                        <button id="btnGroupDrop1" data-bs-toggle="dropdown" aria-expanded="false" class="root" type="submit" type="submit" >
+                                            <b>ルート</b>
+                                            {% for manage in manages %}
+                                            <div style="display: none;">{{manage}}</div>
+                                            <div style="display: none;">{{community}}</div>
+                                            <div style="display: none;">{{user.username}}</div>
+                                            {% endfor %}
+                                        </button>
                                         <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                                            {% for manage in manages %}
+                                            {% for group in groups %}
                                             <li>
-                                                {%for manage in manages%}<button type="submit" class='dropdown-item'>{{manage}}</button>{%endfor%}
+                                                {% if manage == group %}
+                                                <button type="submit" class='dropdown-item'>
+                                                    <img class="icon" src="/media/{{group.icon}}/"/>{{group.name}}
+                                                </button>
+                                                {% comment %} <b><a href="/community/{{group.name}}/"><img src="/media/{{group.icon}}/" class="user_icon"/><div class="font">{{group.name}}</div></a></b> {% endcomment %}
+                                                {% endif %}
                                             </li>
+                                            {%endfor%}
+                                            {% endfor %}
                                         </ul>
                                     </div>
                                 </div> 
@@ -62,7 +78,12 @@
                                 <div class="class-root" class="btn-group" role="group" aria-label="Button group with nested dropdown">
                                     <div class="btn-group" role="group">
                                         <input type="hidden" name="value" value="rooting" readonly/>
-                                        <button id="btnGroupDrop1" data-bs-toggle="dropdown" aria-expanded="false" class="rooting1"type="submit"><b>ルート中</b><div style="display: none;">{{user.username}}</div></button>
+                                        <button id="btnGroupDrop1" data-bs-toggle="dropdown" aria-expanded="false" class="rooting1"type="submit">
+                                            <b>ルート中</b>
+                                            <div style="display: none;">{{class}}</div>
+                                            <div style="display: none;">{{community}}</div>
+                                            <div style="display: none;">{{user.username}}</div>
+                                        </button>
                                         <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
                                             {% comment %} {% for root in roots %}
                                             {% for manage in manages %} {% endcomment %}
@@ -218,7 +239,7 @@
                                         </li>
                                         <li class="followerscount">
                                             <span><b>{{user_followers}}</b></span>
-                                            <div class="followandfollower">followers</div>
+                                            <div class="followandfollower">members</div>
                                         </li>
                                         <li class="commentscount">
                                             <b><span id="comments_counter">{{user_comments}}</span></b>
@@ -290,7 +311,7 @@
                                         </li>
                                         <li class="followerscount">
                                             <span><b>{{user_followers}}</b></span>
-                                            <div class="followandfollower">followers</div>
+                                            <div class="followandfollower">members</div>
                                         </li>
                                         <li class="commentscount">
                                             <b><span id="comments_counter"></span></b>
