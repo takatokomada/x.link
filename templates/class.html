@@ -42,7 +42,7 @@
                             <form id="post_button" action="/root_selecter" method="post">
                                 {% csrf_token %}
                                 {% for manage in manages %}
-                                <input type="hidden" name="rooter" value="{{manage}}"readonly/>
+                                <input type="hidden" name="rooter" value="{{manage.name}}"readonly/>
                                 <input type="hidden" name="group" value="{{community}}" readonly/>
                                 <input type="hidden" name="user" value="{{user.username}}" readonly/>
                                 {% endfor %}
@@ -55,7 +55,6 @@
                                             {% for manage in manages %}
                                             <div style="display: none;">{{manage}}</div>
                                             <div style="display: none;">{{community}}</div>
-                                            <div style="display: none;">{{user.username}}</div>
                                             {% endfor %}
                                         </button>
                                         <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
@@ -75,9 +74,10 @@
                                         <input type="hidden" name="value" value="rooting" readonly/>
                                         <button id="btnGroupDrop1" data-bs-toggle="dropdown" aria-expanded="false" class="rooting1"type="submit">
                                             <b>ルート中</b>
-                                            <div style="display: none;">{{class}}</div>
+                                            {% for manage in manages %}
+                                            <div style="display: none;">{{manage}}</div>
                                             <div style="display: none;">{{community}}</div>
-                                            <div style="display: none;">{{user.username}}</div>
+                                            {% endfor %}
                                         </button>
                                         <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
                                             {% comment %} {% for root in roots %}

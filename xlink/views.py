@@ -161,7 +161,7 @@ def community(request,name):
 	followers = FollowersCount.objects.filter(follower=name)
 	followings = FollowersCount.objects.filter(user=name)
 	rooters = Root.objects.filter(group=name)
-	user_rooters = Root.objects.filter(rooter=name)
+	roots = Root.objects.filter(rooter=name)
 	root_class=[]
 	user_followers1 = []
 	for i in user_followers0:
@@ -188,7 +188,7 @@ def community(request,name):
 		'return_comments': return_comments,
 		'community':name,
 		'manages': manages, 
-		'roots': user_rooters,
+		'roots': roots,
 		'rooters': rooters,
 		'current_user': current_user,
 		'followers': followers,
@@ -205,14 +205,17 @@ def root_selecter(request):
 	if request.method == "POST":
 		value = request.POST["value"]
 		user = request.POST["user"]
-		rooter = request.POST["rooter"]
 		group = request.POST["group"]	
+		# rooters = request.POST["rooter"]	
+		rooters = request.POST.getlist("rooter") 
 		if value == 'root':
-			root_sel = Root.objects.create(group=group, rooter=rooter, user=user)
-			root_sel.save()
+			for rooter in rooters:
+				root_sel=Root.objects.create(group=group, rooter=rooter, user=user)
+				root_sel.save()
 		else: 
-			root_sel = Root.objects.get(group=group,  rooter=rooter, user=user)
-			root_sel.delete()
+			for rooter in rooters:
+				root_sel=Root.objects.get(group=group, rooter=rooter, user=user)
+				root_sel.delete()
 		return redirect('/community/' + group)
 def follow_counts(request):
 	if request.method == "POST":
