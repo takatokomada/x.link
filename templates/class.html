@@ -60,16 +60,11 @@
                                         </button>
                                         <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
                                             {% for manage in manages %}
-                                            {% for group in groups %}
                                             <li>
-                                                {% if manage == group %}
                                                 <button type="submit" class='dropdown-item'>
-                                                    <img class="icon" src="/media/{{group.icon}}/"/>{{group.name}}
+                                                    <img class="icon" src="/media/{{manage.icon}}/"/>{{manage.name}}
                                                 </button>
-                                                {% comment %} <b><a href="/community/{{group.name}}/"><img src="/media/{{group.icon}}/" class="user_icon"/><div class="font">{{group.name}}</div></a></b> {% endcomment %}
-                                                {% endif %}
                                             </li>
-                                            {%endfor%}
                                             {% endfor %}
                                         </ul>
                                     </div>
