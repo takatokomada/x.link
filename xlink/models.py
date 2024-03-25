@@ -69,8 +69,6 @@ class Comment(models.Model):
     image = models.FileField(upload_to='post/',null=True,blank=True , verbose_name=None)
     video = models.FileField(upload_to='video/', null=True, blank=True, verbose_name=None)
     created_at = models.DateTimeField(auto_now_add=True,null=True  ,verbose_name='作成日')
-    def get_absolute_url(self): # new
-        return reverse('community', args=[str(self.destination)])
     def __str__(self):
         return str(self.text)
     class Meta:
@@ -96,8 +94,6 @@ class ReturnComment(models.Model):
     user = models.ForeignKey(Account, on_delete=models.CASCADE, null=True)
     text = models.TextField(max_length=158, null=True)
     created_at = models.DateTimeField(auto_now_add=True,null=True  ,verbose_name='作成日')
-    def get_absolute_url(self): # new
-        return reverse('community', args=[str(self.class_name)])
     def __str__(self):
         return str(self.comment)
     class Meta:

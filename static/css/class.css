@@ -309,7 +309,7 @@
     margin-bottom: -5px;
     top: -30px;
     width: 599px;
-    margin-left: -1px;
+    margin-left: 129px;
     height: auto;
     border: 1px solid rgb(229, 228, 228); 
     background: white; 
@@ -319,7 +319,7 @@
     margin-bottom: -22.5px;
     top: -30px;
     width: 599px;
-    margin-left: -1px;
+    margin-left: 129px;
     height: auto;
     border: 1px solid rgb(229, 228, 228); 
     background: white; 
@@ -832,7 +832,7 @@ nt{
     line-height: 2;
     width: 80%;
     margin: 0 auto 20px;
-    margin-left: -20px;
+    margin-left: 129px;
 }
 
 .accordion-container .contents {

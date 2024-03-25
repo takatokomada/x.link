@@ -330,7 +330,8 @@ class CreateClassView(generic.CreateView):
 form_class = CreateClassView.as_view()
 class CreateCommentView(generic.CreateView):
 	form_class = CommentForm
-	template_name="comment_form.html"
+	template_name="comment.html"
+	success_url = '/'
 	def get_form_kwargs(self,*args, **kwargs):
 		kwargs = super().get_form_kwargs(*args, **kwargs)
 		form = CommentForm(self.request.POST, self.request.FILES,  instance=Group and Account)
@@ -343,7 +344,8 @@ class CreateCommentView(generic.CreateView):
 form_comment=CreateCommentView.as_view()
 class CreateReturnComment(generic.CreateView):
 	form_class = ReturnCommentForm
-	template_name="re_comment.html"
+	template_name="return.html"
+	success_url = '/'
 	def get_form_kwargs(self,*args, **kwargs):
 		kwargs = super().get_form_kwargs(*args, **kwargs)
 		form = ReturnCommentForm(self.request.POST, instance=Comment and Group and Account)
