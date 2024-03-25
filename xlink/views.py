@@ -206,15 +206,16 @@ def root_selecter(request):
 		value = request.POST["value"]
 		user = request.POST["user"]
 		group = request.POST["group"]	
-		# rooters = request.POST["rooter"]	
-		rooters = request.POST.getlist("rooter") 
+		rooters= request.POST.getlist("rooter") 
+		# rooters = request.POST["rooter"]
+		# rooters = Group.objects.get(name=root)
 		if value == 'root':
 			for rooter in rooters:
 				root_sel=Root.objects.create(group=group, rooter=rooter, user=user)
 				root_sel.save()
 		else: 
 			for rooter in rooters:
-				root_sel=Root.objects.get(group=group, rooter=rooter, user=user)
+				root_sel=Root.objects.filter(group=group, rooter=rooter, user=user)
 				root_sel.delete()
 		return redirect('/community/' + group)
 def follow_counts(request):

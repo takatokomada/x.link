@@ -105,6 +105,7 @@ class ReturnComment(models.Model):
 class Root(models.Model):
     group = models.CharField(max_length=10000000)
     rooter = models.CharField(max_length=1000000)
+    # rooter = models.ForeignKey(Group, on_delete=models.CASCADE, null=True, related_name="ルーター")
     user = models.CharField(max_length=10000000)
     def __str__(self):
         return self.group
