@@ -157,7 +157,7 @@
                                                 <path d="M6.5 7a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
                                             </svg>
                                             <span class="group">
-                                                <div class="time">{{community.created_at|date:'Y年n月'}}から利用しています。</div>
+                                                <div class="time">このクラスは{{community.created_at|date:'Y年n月'}}に作成しました。</div>
                                             </span>
                                         </li>
                                         <li class="followerscount">
@@ -229,7 +229,7 @@
                                                 <path d="M6.5 7a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
                                             </svg>
                                             <span class="group">
-                                                <div class="time">{{community.created_at|date:'Y年n月'}}から利用しています。</div>
+                                                <div class="time">このクラスは{{community.created_at|date:'Y年n月'}}に作成しました。</div>
                                             </span>
                                         </li>
                                         <li class="followerscount">
@@ -301,7 +301,7 @@
                                               <path d="M6.5 7a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
                                             </svg>
                                             <span class="group">
-                                              <div class="time">{{community.created_at|date:'Y年n月'}}から利用しています。</div>
+                                              <div class="time">このクラスは{{community.created_at|date:'Y年n月'}}に作成しました。</div>
                                             </span>
                                         </li>
                                         <li class="followerscount">
@@ -322,7 +322,7 @@
                                 <div class="menu"><b>投稿</b></div>
                             </li>
                             <li class="tab2 tab2-B">
-                                <div class="menu"><b>通知</b></div>
+                                <div class="menu"><b>ルート中</b></div>
                             </li>       
                             <li class="tab2 tab2-B">
                                 <div class="menu"><b>ルーター</b></div>
@@ -455,23 +455,22 @@
                             <div class="followerroom">
                                 <div class="post_talk_bord">
                                     <hr class="hr_follower">
-                                    <div class="follower"><b><center>通知</center></b></div>
-                                    <br>
-                                    <ul>
-                                        <ul class="notifications_list">
-                                        {% for notification in notifications%}
-                                        {% if notification.destination == community%}
-                                        <li class="notifications">
-                                          <b>
-                                            <a href="/account/{{notification.user}}/"><div class="notification_name"><img src="/media/{{notification.user.icon}}/" class="root_user_icon" alt=""/>{{notification.user}}</div></a>
-                                            <div class="notification_text">{{notification.message}}</div>
-                                          </b>
+                                    <div class="follower"><b><center>Rooting</center></b></div>
+                                    <li style="color: white">
+                                      {% for root in roots %}
+                                      <ul class="followers_list">
+                                        {% for group in groups%}
+                                        {% if root.group == group.name %}
+                                        <li class="followers_class">
+                                          <b><a href="/community/{{group.name}}/"><img src="/media/{{group.icon}}/" class="user_icon"/><div class="font">{{group.name}}</div></a></b>
+                                          <div class="class_indexs"><small><b>{{group.index}}</b></small></div>
                                         </li>
-                                        <br> 
+                                        <br>
                                         {% endif %}
-                                        {% endfor %}
+                                        {%endfor%}
                                       </ul>
-                                    </ul>
+                                      {%endfor%}
+                                    </li>
                                   </div>
                             </div>
                         </div>
@@ -481,12 +480,11 @@
                                 <div class="post_talk_bord">
                                     <hr class="hr_follower">
                                     <div class="follower"><b><center>Rooters</center></b></div>
-                                    <br>
                                     <li style="color: white">
-                                      {% for root in roots %}
+                                      {% for rooter in rooters %}
                                       <ul class="followers_list">
                                         {% for group in groups%}
-                                        {% if root.group == group.name %}
+                                        {% if rooter.rooter == group.name %}
                                         <li class="followers_class">
                                           <b><a href="/community/{{group.name}}/"><img src="/media/{{group.icon}}/" class="user_icon"/><div class="font">{{group.name}}</div></a></b>
                                           <div class="class_indexs"><small><b>{{group.index}}</b></small></div>
@@ -506,21 +504,20 @@
                                 <div class="post_talk_bord">
                                     <hr class="hr_follower">
                                     <div class="follower"><b><center>Members</center></b></div>
-                                    <br>
                                     <li style="color: white">
-                                      {% for following in followings %}
                                       <ul class="followers_list">
+                                        {% for following in followings %}
                                         {% for room in rooms%}
                                         {% if following.follower == room.name %}
                                         <li class="followers">
                                           <b>
-                                            <a href="/account/{{room.name}}/"><div class="font"><img src="/media/{{room.icon}}/" class="root_user_icon"/>{{room.name}}</div></a>
+                                            <a href="/account/{{room.name}}/"><div class="font_2"><img src="/media/{{room.icon}}/" class="root_user_icon"/>{{room.name}}</div></a>
                                           </b>
                                         </li>
                                         {% endif %}
                                         {%endfor%}
+                                        {%endfor%}
                                       </ul>
-                                      {%endfor%}
                                     </li>
                                     <br>
                                   </div>

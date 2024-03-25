@@ -1038,24 +1038,34 @@ details {
     margin-top: -20px;
 }
 .followers_class{
-    margin-bottom: 25px;
+    margin-bottom: 0px;
     margin-left: -10px;
     font-size: 22.5px;
 }
 .followers{
-    margin-bottom: 15px;
+    margin-bottom: 0px;
     margin-left: -5px;
     font-size: 22.5px;
 }
 .followers_list{
-    margin-top: -34px;
+    /* margin-top: -34px;
     margin-left: 80px;
     font-size: 15px;
-
+    margin-bottom: -20px; */
+    margin-top: -15px;
+    margin-left: 80px;
+    font-size: 15px;
 }
 .font{
     color: #050505;
-    margin-left: 0px;
+    margin-left: 60px;
+    margin-top: -55px; 
+}
+.font_2{
+    color: #050505;
+    margin-left: 25px;
+    margin-top: 0px;
+    margin-bottom: 10px;
 }
 .root_user_icon{
     width: 45px;
@@ -1079,8 +1089,8 @@ details {
 .class_indexs{
     font-size: 17.5px;
     width: 400px;
-    margin-left: 70px;
-    margin-top: -25px;
+    margin-left: 60px;
+    margin-top: -10px;
     color: black;
 }
 .class_icon{
